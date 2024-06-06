@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard </title>
+  <link rel="stylesheet" href="CSS/DashboardTime.css" />
+
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    body {
+       font-family: Arial, sans-serif;
+       margin: 20px;
+       background-color: #A367B1;
+       color: #392467;
+   }
+   .container1 {
+       width: 100%;
+       margin-left: 10px;
+       margin: auto;
+       background-color: white;
+       padding: 20px;
+       border-radius: 10px;
+   }
+   h1 {
+       text-align: center;
+       color: #A367B1;
+   }
+   form {
+       margin-bottom: 20px;
+   }
+   label {
+       display: block;
+       margin-bottom: 8px;
+       color: #392467;
+   }
+   input[type="text"], input[type="time"], select {
+       width: 100%;
+       padding: 8px;
+       margin-bottom: 10px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+   }
+   button {
+       padding: 10px 20px;
+       border: none;
+       background-color: #A367B1;
+       color: white;
+       cursor: pointer;
+       border-radius: 4px;
+   }
+   button:hover {
+       background-color: #9249A5;
+   }
+   table {
+       width: 100%;
+       border-collapse: collapse;
+       margin-top: 20px;
+       background-color: white;
+       color: #392467;
+   }
+   th, td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;
+   }
+   th {
+       background-color: #f2f2f2;
+   }
+   .delete-button {
+       background-color: #dc3545;
+       color: white;
+       border: none;
+       padding: 5px 10px;
+       cursor: pointer;
+   }
+   .delete-button:hover {
+       background-color: #c82333;
+   }
+</style>
+</head>
+
+<body>
+
+  <div class="container">
+    <nav>
+        <ul>
+            <li class="logo">
+              <span class="nav-item">DashBoard</span>
+            </li>
+            <li class="logo01">
+              <img src="Image/Person.png" alt="Student">
+            </li>
+            <li class="logo02">
+              <span class="nav-item1">Chahd Hattab</span>
+              <span class="nav-item2">chahdhattab@gmail.com</span>
+            </li>
+
+            <li><a href="DashboardHome.html">
+              <i class="fas fa-home"></i>
+              <span class="nav-item">Home</span>
+            </a></li>
+            <li><a href="DashboardProfile.html">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">Profile</span>
+            </a></li>
+            <li><a href="DashboardTime.html">
+                <i class="fas fa-book"></i>
+              <span class="nav-item">Timetables</span>
+            </a></li>
+            <li><a href="Dashboardabsence.html">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">Absences</span>
+            </a></li>
+            <li><a href="Dashboardnotes.html">
+                <i class="fas fa-tasks"></i>
+                <span class="nav-item">notes</span>
+              </a></li>
+            <li><a href="DashboardClasses.html">
+              <i class="fas fa-chart-bar"></i>
+              <span class="nav-item">Classes</span>
+            </a></li>
+            <li><a href="DashboardSettings.html">
+              <i class="fas fa-cog"></i>
+              <span class="nav-item">Settings</span>
+            </a></li>
+            <li><a href="index.html" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+          </ul>
+    </nav>
+    
+      <div class="container1" style="margin-left: 50px; margin-right: 30px;">
+          <h1> Emploi du Temps </h1>
+          <form id="schedule-form">
+              <label for="course-PROF">PROF:</label>
+              <input type="text" id="course-PROF" name="PROF" required>
+              
+              <label for="course-name">Nom du cours:</label>
+              <input type="text" id="course-name" name="course" required>
+              
+              <label for="course-day">Jour:</label>
+              <select id="course-day" name="day" required>
+                  <option value="Lundi">Lundi</option>
+                  <option value="Mardi">Mardi</option>
+                  <option value="Mercredi">Mercredi</option>
+                  <option value="Jeudi">Jeudi</option>
+                  <option value="Vendredi">Vendredi</option>
+                  <option value="Samedi">Samedi</option>
+              </select>
+  
+              <label for="course-time">Heure:</label>
+              <input type="time" id="course-time" name="time" required>
+              
+              <button type="submit">Ajouter le cours</button>
+          </form>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Prof</th>
+                      <th>Nom du cours</th>
+                      <th>Jour</th>
+                      <th>Heure</th>
+                      
+                  </tr>
+              </thead>
+              <tbody id="schedule-list">
+                  <!-- Les cours seront ajoutés ici dynamiquement -->
+              </tbody>
+          </table>
+      </div>
+  
+      <script>
+          document.getElementById('schedule-form').addEventListener('submit', function(event) {
+              event.preventDefault();
+              const coursePROF = document.getElementById('course-PROF').value;
+              const courseName = document.getElementById('course-name').value;
+              const courseDay = document.getElementById('course-day').value;
+              const courseTime = document.getElementById('course-time').value;
+  
+              const tbody = document.getElementById('schedule-list');
+              const row = document.createElement('tr');
+  
+              row.innerHTML = `
+                  <td>${coursePROF}</td>
+                  <td>${courseName}</td>
+                  <td>${courseDay}</td>
+                  <td>${courseTime}</td>
+                  <td><button class="delete-button">Supprimer</button></td>
+              `;
+  
+              row.querySelector('.delete-button').addEventListener('click', function() {
+                  tbody.removeChild(row);
+              });
+  
+              tbody.appendChild(row);
+  
+              document.getElementById('schedule-form').reset();
+          });
+      </script>
+      
+</body>
+</html>

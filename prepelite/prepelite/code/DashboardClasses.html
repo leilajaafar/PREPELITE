@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard </title>
+  <link rel="stylesheet" href="CSS/DashboardClasses.css" />
+
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    body {
+               font-family: Arial, sans-serif;
+               margin: 20px;
+               background-color: #A367B1;
+               color: #392467;
+           }
+           .container01 {
+               width: 100%;
+               margin: auto;
+               margin-left: 10px;
+               background-color: white;
+               padding: 20px;
+               border-radius: 10px;
+           }
+           h1 {
+               text-align: center;
+               color: #A367B1;
+           }
+           form {
+               margin-bottom: 20px;
+           }
+           label {
+               display: block;
+               margin-bottom: 8px;
+               color: #392467;
+           }
+           input[type="text"], input[type="time"], select {
+               width: 100%;
+               padding: 8px;
+               margin-bottom: 10px;
+               border: 1px solid #ccc;
+               border-radius: 4px;
+           }
+           button {
+               padding: 10px 20px;
+               border: none;
+               background-color: #A367B1;
+               color: white;
+               cursor: pointer;
+               border-radius: 4px;
+           }
+           button:hover {
+               background-color: #9249A5;
+           }
+           table {
+               width: 100%;
+               border-collapse: collapse;
+               margin-top: 20px;
+               background-color: white;
+               color: #392467;
+           }
+           th, td {
+               border: 1px solid #ddd;
+               padding: 8px;
+               text-align: center;
+           }
+           th {
+               background-color: #f2f2f2;
+           }
+           .delete-button {
+               background-color: #dc3545;
+               color: white;
+               border: none;
+               padding: 5px 10px;
+               cursor: pointer;
+           }
+           .delete-button:hover {
+               background-color: #c82333;
+           }
+</style>
+</head>
+
+<body>
+
+  <div class="container">
+    <nav>
+        <ul>
+            <li class="logo">
+              <span class="nav-item">DashBoard</span>
+            </li>
+            <li class="logo01">
+              <img src="Image/Person.png" alt="Student">
+            </li>
+            <li class="logo02">
+              <span class="nav-item1">Chahd Hattab</span>
+              <span class="nav-item2">chahdhattab@gmail.com</span>
+            </li>
+
+            <li><a href="DashboardHome.html">
+              <i class="fas fa-home"></i>
+              <span class="nav-item">Home</span>
+            </a></li>
+            <li><a href="DashboardProfile.html">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">Profile</span>
+            </a></li>
+            <li><a href="DashboardTime.html">
+                <i class="fas fa-book"></i>
+              <span class="nav-item">Timetables</span>
+            </a></li>
+            <li><a href="Dashboardabsence.html">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">Absences</span>
+            </a></li>
+            <li><a href="Dashboardnotes.html">
+                <i class="fas fa-tasks"></i>
+                <span class="nav-item">notes</span>
+              </a></li>
+            <li><a href="DashboardClasses.html">
+              <i class="fas fa-chart-bar"></i>
+              <span class="nav-item">Classes</span>
+            </a></li>
+            <li><a href="DashboardSettings.html">
+              <i class="fas fa-cog"></i>
+              <span class="nav-item">Settings</span>
+            </a></li>
+            <li><a href="index.html" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+          </ul>
+    </nav>
+    <!---->
+    <div class="container01">
+        <h1 > Gestion de Classe</h1>
+        <form id="class-form">
+            <label for="filiere">Filière:</label>
+            <select id="filiere" name="filiere" required>
+                <option value="Informatique">G.Informatique</option>
+                <option value="MGSI">MGSI</option>
+                <option value="SICS">SICS</option>
+                <option value="DSCC">DSCC</option> 
+                <option value="ITIRC">ITIRC</option>
+                <option value="INDUS">INDUS</option>
+            </select>
+            
+            <label for="annee">Année d'étude:</label>
+            <select id="annee" name="annee" required>
+                <option value="1">1ère année</option>
+                <option value="2">2ème année</option>
+                <option value="3">3ème année</option>
+                
+            </select>
+    
+            <label for="class-name">Nom de la classe:</label>
+            <input type="text" id="class-name" name="class-name" required>
+            
+            <label for="class-time">Heure:</label>
+            <input type="time" id="class-time" name="class-time" required>
+            
+            <button type="submit">Ajouter la classe</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Filière</th>
+                    <th>Année</th>
+                    <th>Nom de la classe</th>
+                    <th>Heure</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="class-list">
+                <!-- Les classes seront ajoutées ici dynamiquement -->
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        document.getElementById('class-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const filiere = document.getElementById('filiere').value;
+            const annee = document.getElementById('annee').value;
+            const className = document.getElementById('class-name').value;
+            const classTime = document.getElementById('class-time').value;
+    
+            const tbody = document.getElementById('class-list');
+            const row = document.createElement('tr');
+    
+            row.innerHTML = `
+                <td>${filiere}</td>
+                <td>${annee}</td>
+                <td>${className}</td>
+                <td>${classTime}</td>
+                <td><button class="delete-button">Supprimer</button></td>
+            `;
+    
+            row.querySelector('.delete-button').addEventListener('click', function() {
+                tbody.removeChild(row);
+            });
+    
+            tbody.appendChild(row);
+    
+            document.getElementById('class-form').reset();
+        });
+    </script>
+    <body>
+        
+      
+</body>
+</html>

@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: #A367B1;
+}
+
+.container{
+  display: flex;
+}
+
+nav{
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  height: 750px;
+}
+
+.logo{
+  text-align: center;
+  list-style: none;
+  margin-left: -20px;
+}
+
+.logo01{
+  text-align: center;
+  list-style: none;
+}
+
+.logo02{
+  text-align: center;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.logo01 img{
+  border-radius: 50%;
+  margin: 20px 0 0 10px;
+  width: 80px;
+  height: 80px;
+
+}
+
+.logo span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.logo02 span{
+  padding-left: 15px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+a{
+  position: relative;
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: table;
+  width: 280px;
+  padding: 10px;
+}
+
+nav .fas{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-item{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+
+a:hover{
+  background: #eee;
+}
+
+.logout{
+  position: absolute;
+  bottom: 0;
+}
+
+
+/* Fee */
+.Main-Fee{
+  margin-top:40px ;
+  text-transform: capitalize;
+  margin-left: 120px;
+}
+
+.Main-Fee h1{
+  margin-bottom: 30px;
+  font-size: 40px;
+}
+
+.Fee-box{
+  width: 135%;
+  height: 400px;
+  padding: 10px 10px 30px 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.Fee01{
+  margin: 50px;
+  flex-basis: 60%;
+  margin-left: 60px;
+}
+
+.Fee02{
+  text-align: center;
+  flex-basis: 40%;
+  margin-left: -100px;
+  margin-right: 30px;
+}
+
+tr td:first-child{
+  padding-right: 20px;
+}
+
+tr td{
+  padding-top: 20px;
+}
+
+.item1{
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: -80px;
+}
+
+.item2{
+  margin-bottom: 30px;
+  margin-left: 75px;
+  font-size: 15px;
+  border: .8px solid;
+  border-radius: 8px;
+  width: 40%;
+  padding: 8px;
+}
+
+.text{
+  text-align: center;
+  font-size: 13px;
+  text-align: left;
+}
+
+.status{
+  width: 160px;
+  height: 160px;
+  position: relative;
+  margin-left: 70px;
+}
+
+.outer{
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
+}
+
+.inner{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+              inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+              -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+              0.5px 0.5px 0px rgba(0, 0, 0, 15),
+              0px 12px 10px -10px rgba(0,0,0,0.05);
+}
+
+#number{
+  font-weight: 600;
+  color: #555;
+}
+
+circle{
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  animation: anim 2s linear forwards;
+}
+
+svg{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes anim {
+  100%{
+    stroke-dashoffset: 236; /*472-472*0.50 = 236*/
+  }
+}
+
+.Fee-table table{
+  border: 1.5px solid gray;
+  width: 120%;
+  background: #fff;
+}
+
+.Fee-table tr{
+  margin: 30px;
+}
+
+.Fee-table th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+  
